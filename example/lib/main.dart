@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         child: Image.asset(
+          // Technology illustrations by Storyset perfect from https://storyset.com/technologygi
           "assets/Mobile apps.gif",
           height: 350.0,
           width: 350.0,
