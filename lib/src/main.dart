@@ -9,6 +9,7 @@ class PinCodeScreen extends StatelessWidget {
   final Widget? child;
   final Widget? retryWidget;
   final PreferredSizeWidget? appBar;
+  final ButtonStyleButton? button;
   final Function(BuildContext context, String value) validator;
 
   const PinCodeScreen({
@@ -19,6 +20,7 @@ class PinCodeScreen extends StatelessWidget {
     this.child,
     this.retryWidget,
     this.appBar,
+    this.button,
     required this.validator,
   }) : super(key: key);
 
@@ -38,7 +40,7 @@ class PinCodeScreen extends StatelessWidget {
                 child: child,
               ),
               Container(
-                padding: margin,
+                padding: padding,
                 child: Column(
                   children: [
                     PinCodeWidget(
@@ -52,6 +54,10 @@ class PinCodeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: button,
               ),
             ],
           ),
