@@ -32,6 +32,7 @@ class PinCodeScreen extends StatelessWidget {
         child: Container(
           margin: margin,
           padding: padding,
+          height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
               Container(
