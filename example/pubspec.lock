@@ -126,9 +126,11 @@ packages:
   pin_code_screen:
     dependency: "direct dev"
     description:
-      path: ".."
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: e9e2a83135e4b22e5fe98ad4875cff4e657243d9
+      url: "https://github.com/Mohammad-Safayet/flutter-otp-screen.git"
+    source: git
     version: "0.0.1"
   sky_engine:
     dependency: transitive

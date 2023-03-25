@@ -47,7 +47,9 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   pin_code_screen: 
-    path: ../
+    git:
+      url: https://github.com/Mohammad-Safayet/flutter-otp-screen.git
+      ref: main
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
