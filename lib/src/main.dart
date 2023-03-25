@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:pin_code_screen/src/widgets/pin_code.dart';
 
 class PinCodeScreen extends StatelessWidget {
@@ -7,6 +8,7 @@ class PinCodeScreen extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final Widget? child;
   final Widget? retryWidget;
+  final PreferredSizeWidget? appBar;
   final Function(BuildContext context, String value) validator;
 
   const PinCodeScreen({
@@ -16,12 +18,14 @@ class PinCodeScreen extends StatelessWidget {
     this.margin,
     this.child,
     this.retryWidget,
+    this.appBar,
     required this.validator,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar,
       body: SafeArea(
         child: Container(
           margin: margin,
