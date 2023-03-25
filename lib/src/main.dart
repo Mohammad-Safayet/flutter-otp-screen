@@ -22,7 +22,11 @@ class PinCodeScreen extends StatelessWidget {
     this.appBar,
     this.button,
     required this.validator,
-  }) : super(key: key);
+  })  : assert(
+          (size > 2 && size < 6),
+          "OTP code size out of range",
+        ),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,7 @@ class PinCodeScreen extends StatelessWidget {
           margin: margin,
           padding: padding,
           height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
               Container(
