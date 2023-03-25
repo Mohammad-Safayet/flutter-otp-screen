@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pin_code_screen/src/models/pin_input_decoration.dart';
 
 class PinCodeWidget extends StatefulWidget {
   const PinCodeWidget({
     Key? key,
     required this.size,
     required this.validator,
+    this.theme,
   }) : super(key: key);
 
   final int size;
   final Function(BuildContext, String) validator;
-
+  final PinInputTheme? theme;
 
   @override
   State<PinCodeWidget> createState() => _PinCodeWidgetState();
@@ -43,36 +45,25 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         widget.size,
         (index) => Container(
-          height: 58,
-          width: 54,
-          decoration: BoxDecoration(
-            color: Colors.white60,
-            border: Border.all(
-              width: 1.5,
-              color: Colors.purple,
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(8.0),
-            ),
-          ),
+          height: 50,
+          width: 45,
+          margin: const EdgeInsets.symmetric(horizontal: 12.0),
+          decoration: widget.theme?.decoration,
           child: TextFormField(
             onChanged: (value) {
               textFieldOnChange(index, value);
             },
-            decoration: const InputDecoration(
-              counterText: "",
-              border: InputBorder.none,
-            ),
+            decoration: widget.theme?.inputDecoration,
             textInputAction: index < code.length
                 ? TextInputAction.next
                 : TextInputAction.done,
             controller: _textEditingController[index],
             focusNode: _focusNode[index],
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: widget.theme?.textStyle,
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
             inputFormatters: [

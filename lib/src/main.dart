@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 
+import 'package:pin_code_screen/src/models/pin_input_decoration.dart';
 import 'package:pin_code_screen/src/widgets/pin_code.dart';
 
 class PinCodeScreen extends StatelessWidget {
   final int size;
-  final EdgeInsetsGeometry? padding;
-  final EdgeInsetsGeometry? margin;
   final Widget? child;
   final Widget? retryWidget;
   final PreferredSizeWidget? appBar;
   final ButtonStyleButton? button;
+  final PinInputTheme? theme;
   final Function(BuildContext context, String value) validator;
 
   const PinCodeScreen({
     Key? key,
     required this.size,
-    this.padding,
-    this.margin,
     this.child,
     this.retryWidget,
     this.appBar,
     this.button,
+    this.theme,
     required this.validator,
   })  : assert(
           (size > 2 && size < 6),
@@ -34,8 +33,8 @@ class PinCodeScreen extends StatelessWidget {
       appBar: appBar,
       body: SafeArea(
         child: Container(
-          margin: margin,
-          padding: padding,
+          margin: theme?.margin,
+          padding: theme?.padding,
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -46,12 +45,13 @@ class PinCodeScreen extends StatelessWidget {
                 child: child,
               ),
               Container(
-                padding: padding,
+                padding: theme?.padding,
                 child: Column(
                   children: [
                     PinCodeWidget(
                       size: size,
                       validator: validator,
+                      theme: theme,
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
