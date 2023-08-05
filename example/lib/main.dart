@@ -20,6 +20,16 @@ class MyApp extends StatelessWidget {
       home: PinCodeScreen(
         size: 5,
         validator: (BuildContext context, String value) {},
+        appBar: AppBar(
+          title: Text(
+            "OTP Verification",
+          ),
+          centerTitle: true,
+        ),
+        button: ElevatedButton(
+          onPressed: () {},
+          child: Text("Verify"),
+        ),
         retryWidget: Center(
           child: RichText(
             text: TextSpan(
@@ -42,11 +52,19 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        child: Image.asset(
-          // Technology illustrations by Storyset perfect from https://storyset.com/technologygi
-          "assets/Mobile apps.gif",
-          height: 350.0,
-          width: 350.0,
+        child: Column(
+          children: [
+            Image.asset(
+              // Technology illustrations by Storyset perfect from https://storyset.com/technologygi
+              "assets/Mobile apps.gif",
+              height: 350.0,
+              width: 350.0,
+            ),
+            Text(
+              "Sent verification to +65225986",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ],
         ),
       ),
     );
