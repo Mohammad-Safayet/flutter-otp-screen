@@ -49,15 +49,18 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
       children: List.generate(
         widget.size,
         (index) => Container(
-          height: 50,
-          width: 45,
+          height: widget.theme?.height ?? 50,
+          width: widget.theme?.width ?? 45,
           margin: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: widget.theme?.decoration,
+          constraints: widget.theme?.constraints,
           child: TextFormField(
             onChanged: (value) {
               textFieldOnChange(index, value);
             },
-            decoration: widget.theme?.inputDecoration,
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+            ),
             textInputAction: index < code.length
                 ? TextInputAction.next
                 : TextInputAction.done,
